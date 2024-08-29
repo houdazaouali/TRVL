@@ -1,21 +1,28 @@
-const express = require('express');
-"const cors = require('cors');"
-const db = require('./models'); // Importation des modèles
+require("dotenv").config();
+const express = require("express");
+const cors = require("cors");  // Importez le package cors
+const sequelize = require("./src/config/config");
+const adventureRoutes = require("./src/routes/adventureRoutes");
 
-const app = express(); // Initialise l'application Express
-"app.use(cors());"
-app.use(express.json()); // Middleware pour parser les requêtes JSON
+const app = express();
 
-// Routes définies avant l'utilisation de l'application
-app.use('/adventures', require('./routes/adventureRoutes'));
+// Activez CORS pour l'origine spécifique
+app.use(cors({
+  origin: 'http://localhost:3000'  // Remplacez par l'origine de votre frontend
+}));
 
-// Synchronisation de la base de données
-db.sequelize.sync()
-  .then(() => console.log('Database synchronized'))
-  .catch(error => console.error('Unable to synchronize database:', error));
+app.use(express.json());
+app.use("/api", adventureRoutes);
 
-// Démarrage du serveur
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Backend server running on port ${PORT}`);
-});
+
+sequelize
+  .sync()
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Le serveur fonctionne sur le port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Impossible de se connecter à la base de données :", err);
+  });
