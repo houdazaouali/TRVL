@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+  }
+  
+  .home,
+  .services,
+  .products,
+  .sign-up
+  .add-adventures {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+  }
+  
+  .services {
+    background-image: url('C:\Users\21695\travel-website\public\images\img-2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 100px;
+  }
+  
+  .products {
+    background-image: url('C:\Users\21695\travel-website\public\images\img-6.jpg');
+    background-position: center;
+    background-size: fill;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 100px;
+  }
+  
+  .sign-up {
+    background-image: url('C:\Users\21695\travel-website\public\images\img-8.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 100px;
+  }
+  .add-adventures {
+    /* background-image: url('C:/Users/21695/travel-website/public/images/img-7.jpg'); */
+    background-position: center;
+    background-size: cover; /* Cette propriété est importante */
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 100px;
+    height: 100vh; /* Prend toute la hauteur de la page */
+    width: 100%; /* Prend toute la largeur */
+  }
+  
